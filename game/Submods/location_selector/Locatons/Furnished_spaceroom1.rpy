@@ -45,7 +45,6 @@ init -1 python:
 
         # mapping of filters to MASWeatherMaps
         MASFilterWeatherMap(
-            #NOTE: IF ANY OF THESE DON'T HAVE A CORRESPONDING IMAGE AND WISH TO USE THE SAME IMAGE AS CLEAR WEATHER USES, JUST DON'T INCLUDE THE PRECIP TYPE AT ALL
             day=MASWeatherMap({
                 store.mas_weather.PRECIP_TYPE_DEF: "submod_background_Furnished_spaceroom1_day",
                 store.mas_weather.PRECIP_TYPE_RAIN: "submod_background_Furnished_spaceroom1_rain",
@@ -155,7 +154,6 @@ init -2 python in mas_background:
             store.pushEvent("return_switch_dlg")
 
 ###START: Topics
-#THIS ONE RUNS ON CHANGE
 label Furnished_spaceroom1_switch_dlg:
     python:
         switch_quip = renpy.substitute(renpy.random.choice([
@@ -165,11 +163,9 @@ label Furnished_spaceroom1_switch_dlg:
         ]))
 
     m 1hua "[switch_quip]"
-
     return
 
 ###START: Topics
-#THIS ONE RUNS ON CHANGE
 label return_switch_dlg:
     python:
         switch_quip = renpy.substitute(renpy.random.choice([
@@ -179,17 +175,17 @@ label return_switch_dlg:
         ]))
 
     m 1hua "[switch_quip]"
-
     return
 
 #THIS ONE RUNS ON INSTALL
 init 5 python:
     addEvent(
         Event(
-           persistent.event_database,
-           eventlabel="bg_room_installed",
-           conditional="True",
-           action=EV_ACT_QUEUE
+            persistent.event_database,
+            eventlabel="bg_room_installed",
+            conditional="True",
+            action=EV_ACT_QUEUE,
+            aff_range=(mas_aff.ENAMORED, None)
         )
     )
 
