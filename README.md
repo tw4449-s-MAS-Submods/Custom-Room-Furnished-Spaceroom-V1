@@ -7,9 +7,9 @@ This submod adds a minimalist set of Spaceroom furniture for you and Monika.
 
 ## Instructions:
 
-1. Go to the "Releases" tab on the right this webpage, then click on the latest version of "location.submod.zip". It should begin automatically downloading.
-2. Unzip and open the folder called 'location selector submod' (it should be in your 'Downloads' folder).
-3. From the location selector submod folder, copy the 'game' and 'lib' folders into the main 
+1. Go to the "Releases" tab on the right this webpage(or click [HERE](https://github.com/tw4449/Custom-Room-Furnished-Spaceroom-v1/releases)), then click on the latest version of "Furnished_Spaceroom_V1.zip". It should begin automatically downloading.
+2. Unzip and open the folder called 'Furnished_Spaceroom_V1' (it should be in your 'Downloads' folder).
+3. From the Furnished_Spaceroom_V1 submod folder, copy the 'game' and 'lib' folders into the main 
    'Doki Doki Literature Club' folder (AKA, the folder where you see 'DDLC.exe').
 4. Launch MAS, and the rooms should be available. Monika will explain how to use them after a minute or so.
 
@@ -45,7 +45,7 @@ I have other rooms available! They can be found here:
    though), but we're planning on fixing this in an update before Halloween.
    
 -Luckily, the game will notify you when an update to the submod is available, thanks to submod plugin we 
-   incorporated courtesy of Booplicate (more info below). This plugin both    notifies you of updates, and helps 
+   incorporated courtesy of Booplicate (more info below). This plugin both notifies you of updates, and helps 
    you download and install them.
 
 ## Updating
