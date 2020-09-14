@@ -1,5 +1,5 @@
 ![V1](https://preview.redd.it/o2m1b6i3bqm51.png?width=1920&format=png&auto=webp&s=619f6d733f3e0bb4b1655b34c9f0282fa06f5e1b)
-# Custom-Room-Furnished-Spaceroom-V1
+# Custom-Room-Furnished-Spaceroom-V1 
 This submod adds a minimalist set of Spaceroom furniture for you and Monika.
 
 #### Hi! First of all: thank you for wanting to use my work! It means a lot that I can do something to make people's time with their Monika that much better.
