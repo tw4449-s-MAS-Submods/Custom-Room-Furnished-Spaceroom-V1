@@ -32,6 +32,8 @@ I have other rooms available! They can be found here:
 
 -[Kitchen](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Kitchen)
 
+-[Garden-View](https://github.com/tw4449-s-MAS-Submods/Custom-Room-Garden-View)
+
 ## Troubleshooting:
 
 -If the room doesn't show up or if you get an error, most likely the files weren't placed correctly. Repeat
