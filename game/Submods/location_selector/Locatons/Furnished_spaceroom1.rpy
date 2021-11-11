@@ -172,14 +172,12 @@ init -2 python in mas_background:
         if kwargs.get("startup"):
             pass
 
-        #COMMENT(#) IF NOT NEEDED
         else:
             if not store.mas_inEVL("Furnished_spaceroom1_switch_dlg"):
-                   store.pushEvent("Furnished_spaceroom1_switch_dlg")
+                store.pushEvent("Furnished_spaceroom1_switch_dlg")
 
-        #IF THIS IS NOT A FURNISHED SPACEROOM, COMMENT THESE TWO LINES
         if store.seen_event("mas_monika_islands"):
-           store.mas_unlockEVL("mas_monika_islands", "EVE")
+            store.mas_unlockEVL("mas_monika_islands", "EVE")
 
     def _Furnished_spaceroom1_exit(_new, **kwargs):
         """
