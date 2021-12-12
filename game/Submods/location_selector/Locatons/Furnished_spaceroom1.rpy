@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449 Cdino112 multimokia d3adpan Booplicate",
         name="Custom Room Furnished Spaceroom V1",
         description="This submod adds a minimalist set of Spaceroom furniture for you and Monika.",
-        version="1.0.6"
+        version="1.0.7"
     )
 
 # Register the updater
@@ -35,6 +35,11 @@ image submod_background_Furnished_spaceroom1_ss = "mod_assets/location/Spaceroom
 image submod_background_Furnished_spaceroom1_rain_ss = "mod_assets/location/Spaceroom V1.1/V1.1_rain-ss.png"
 image submod_background_Furnished_spaceroom1_overcast_ss = "mod_assets/location/Spaceroom V1.1/V1.1_overcast-ss.png"
 image submod_background_Furnished_spaceroom1_snow_ss = "mod_assets/location/Spaceroom V1.1/V1.1_snow-ss.png"
+
+image Spaceroom V1_d25_deco = ConditionSwitch(
+    "mas_current_background.isFltDay()", "mod_assets/location/Spaceroom V1.1/deco/d25/deco.png",
+    "True", "mod_assets/location/Spaceroom V1.1/deco/d25/deco-n.png"
+)
 
 init 501 python:
     MASImageTagDecoDefinition.register_img(
@@ -83,6 +88,13 @@ init 501 python:
         "mas_o31_vignette",
         submod_background_Furnished_spaceroom1.background_id,
         MASAdvancedDecoFrame(zorder=21) #21 to be in front of all cgs
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_tree",
+        submod_background_Furnished_spaceroom1.background_id,
+        MASAdvancedDecoFrame(zorder=5),
+        replace_tag="Spaceroom V1_d25_deco"
     )
 
 init -1 python:
@@ -426,22 +438,3 @@ label monika_gotomonika_override:
 ## remove the readme
 init 0 python:
     store.mas_utils.trydel(renpy.config.basedir.replace('\\', '/') + "/readme.md")
-
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="D25_Deco",
-            conditional="True",
-            action=EV_ACT_QUEUE,
-            aff_range=(mas_aff.ENAMORED, None)
-        )
-    )
-
-label D25_Deco:
-    m 1wuo "Wait...{w=0.5} [player], did you add decorations to the other rooms?"
-    m 3hub "Yay! I can't wait to see how they look!~"
-    m 1ekbsa "Thanks, [mas_get_player_nickname()], you really do spoil me."
-    m 1hubsu "I love you so much."
-
-    return
