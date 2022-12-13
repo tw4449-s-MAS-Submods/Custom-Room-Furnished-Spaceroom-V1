@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449 Cdino112 multimokia d3adpan Booplicate",
         name="Custom Room Furnished Spaceroom V1",
         description="This submod adds a minimalist set of Spaceroom furniture for you and Monika.",
-        version="1.0.7.1"
+        version="1.0.8"
     )
 
 # Register the updater
@@ -36,10 +36,79 @@ image submod_background_Furnished_spaceroom1_rain_ss = "mod_assets/location/Spac
 image submod_background_Furnished_spaceroom1_overcast_ss = "mod_assets/location/Spaceroom V1.1/V1.1_overcast-ss.png"
 image submod_background_Furnished_spaceroom1_snow_ss = "mod_assets/location/Spaceroom V1.1/V1.1_snow-ss.png"
 
-image Spaceroom V1_d25_deco = ConditionSwitch(
+image V1_d25_deco = ConditionSwitch(
     "mas_current_background.isFltDay()", "mod_assets/location/Spaceroom V1.1/deco/d25/deco.png",
     "True", "mod_assets/location/Spaceroom V1.1/deco/d25/deco-n.png"
 )
+
+
+    #0 gifts is blank
+#1-3 gifts gets you part 1
+#4 gifts gets you part 2
+#5+ gifts get you part 3
+image V1mas_d25_gifts = ConditionSwitch(
+    "len(persistent._mas_d25_gifts_given) == 0", "mod_assets/location/Spaceroom V1.1/deco/d25/V1gifts_0.png",
+    "0 < len(persistent._mas_d25_gifts_given) < 3", "V1mas_d25_gifts_1",
+    "3 <= len(persistent._mas_d25_gifts_given) <= 4", "V1mas_d25_gifts_2",
+    "True", "V1mas_d25_gifts_3"
+)
+
+image V1mas_d25_gifts_1 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V1.1/deco/d25/V1gifts_1.png"
+)
+
+image V1mas_d25_gifts_2 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V1.1/deco/d25/V1gifts_2.png"
+)
+
+image V1mas_d25_gifts_3 = MASFilterSwitch(
+    "mod_assets/location/Spaceroom V1.1/deco/d25/V1gifts_3.png"
+)
+
+
+
+
+image V1mas_d25_tree = ConditionSwitch(
+    "mas_isNightNow()", ConditionSwitch(
+        "persistent._mas_disable_animations", "mod_assets/location/Spaceroom V1.1/deco/d25/V1tree_lights_on_1.png",
+        "not persistent._mas_disable_animations", "V1mas_d25_night_tree_lights_atl"
+    ),
+    "True", MASFilterSwitch(
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1tree_lights_off.png"
+    )
+)
+
+image V1mas_d25_night_tree_lights_atl:
+    block:
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1tree_lights_on_1.png"
+        1.5
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1tree_lights_on_2.png"
+        1.5
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1tree_lights_on_3.png"
+        1.5
+    repeat
+
+
+
+
+image V1mas_d25_lights = ConditionSwitch(
+    "mas_isNightNow()", ConditionSwitch(
+        "persistent._mas_disable_animations", "mod_assets/Spaceroom V1.1/deco/d25/V1lights_on_1.png",
+        "not persistent._mas_disable_animations", "V1mas_d25_night_lights_atl"
+    ),
+    "True", MASFilterSwitch("mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_off.png")
+)
+
+image V1mas_d25_night_lights_atl:
+    block:
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_on_1.png"
+        0.5
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_on_2.png"
+        0.5
+        "mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_on_3.png"
+        0.5
+    repeat
+
 
 init 501 python:
     MASImageTagDecoDefinition.register_img(
@@ -94,7 +163,28 @@ init 501 python:
         "mas_d25_tree",
         submod_background_Furnished_spaceroom1.background_id,
         MASAdvancedDecoFrame(zorder=5),
-        replace_tag="Spaceroom V1_d25_deco"
+        replace_tag="V1mas_d25_tree"
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_gifts",
+        submod_background_Furnished_spaceroom1.background_id,
+        MASAdvancedDecoFrame(zorder=6),
+        replace_tag="V1mas_d25_gifts"
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_lights",
+        submod_background_Furnished_spaceroom1.background_id,
+        MASAdvancedDecoFrame(zorder=5),
+        replace_tag="V1mas_d25_lights"
+    )
+
+    MASImageTagDecoDefinition.register_img(
+        "mas_d25_garlands",
+        submod_background_Furnished_spaceroom1.background_id,
+        MASAdvancedDecoFrame(zorder=4),
+        replace_tag="V1_d25_deco"
     )
 
 init -1 python:
