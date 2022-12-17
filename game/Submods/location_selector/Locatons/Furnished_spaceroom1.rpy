@@ -4,7 +4,7 @@ init -990 python:
         author="tw4449 Cdino112 multimokia d3adpan Booplicate",
         name="Custom Room Furnished Spaceroom V1",
         description="This submod adds a minimalist set of Spaceroom furniture for you and Monika.",
-        version="1.0.8"
+        version="1.0.8.1"
     )
 
 # Register the updater
@@ -93,7 +93,7 @@ image V1mas_d25_night_tree_lights_atl:
 
 image V1mas_d25_lights = ConditionSwitch(
     "mas_isNightNow()", ConditionSwitch(
-        "persistent._mas_disable_animations", "mod_assets/Spaceroom V1.1/deco/d25/V1lights_on_1.png",
+        "persistent._mas_disable_animations", "mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_on_1.png",
         "not persistent._mas_disable_animations", "V1mas_d25_night_lights_atl"
     ),
     "True", MASFilterSwitch("mod_assets/location/Spaceroom V1.1/deco/d25/V1lights_off.png")
